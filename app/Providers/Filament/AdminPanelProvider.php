@@ -26,13 +26,20 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('admin')
-            ->path('admin')
+            ->path('')
             ->login()
+            ->domain(getenv('APP_URL'))
+            ->brandLogo(asset('aguila.png'))
+            ->brandLogoHeight('50px')
+
+            // ->brandLogoHeight('150px')
+            ->brandName('Admin Aguila')
+            ->sidebarCollapsibleOnDesktop()
             ->colors([
                 'primary' => Color::Lime,
 
             ])
-            ->favicon(asset('escudo.png'))
+            ->favicon(asset('aguila.png'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([

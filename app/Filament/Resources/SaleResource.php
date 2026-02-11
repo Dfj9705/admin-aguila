@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Builder;
 class SaleResource extends Resource
 {
     protected static ?string $model = Sale::class;
+    protected static bool $shouldRegisterNavigation = false;
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
     protected static ?string $navigationGroup = 'Ventas';
