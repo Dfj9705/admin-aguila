@@ -201,7 +201,6 @@ class AccessoryResource extends Resource
                                 ->toArray();
                         })
                         ->preload()
-                        ->required()
                         ->disabled(fn(Get $get) => blank($get('compat_brand_id')))
                         ->placeholder('Seleccione un modelo')
                         ->createOptionForm([
