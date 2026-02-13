@@ -25,6 +25,7 @@ class Ammo extends Model
         'moved_at',
         'user_id',
         'images',
+        'description',
     ];
 
     protected $casts = [
