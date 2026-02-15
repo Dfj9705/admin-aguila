@@ -9,6 +9,7 @@ use App\Filament\Resources\WeaponResource\RelationManagers\MovementsRelationMana
 use App\Filament\Resources\WeaponResource\RelationManagers\UnitsRelationManager;
 use App\Models\BrandModel;
 use Filament\Forms;
+use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Placeholder;
@@ -178,8 +179,16 @@ class WeaponResource extends Resource
                         'INACTIVE' => 'Baja',
                     ])->default('ACTIVE')->required(),
 
+                ColorPicker::make('color')
+                    ->label('Color'),
+
+                TextInput::make('color_text')
+                    ->label('Color'),
+
                 Textarea::make('description')->label('Descripción')->columnSpanFull(),
             ])->columns(2),
+
+
 
             Section::make('Imágenes')->schema([
                 FileUpload::make('images')
@@ -210,6 +219,18 @@ class WeaponResource extends Resource
                     ->circular()
                     ->getStateUsing(fn($record) => $record->images[0] ?? null),
 
+                TextColumn::make('color')
+                    ->label('Color')
+                    ->badge()
+                    ->formatStateUsing(fn($state) => strtoupper($state))
+                    ->color(fn($state) => $state)
+                    ->extraAttributes(fn($state) => [
+                        'style' => "
+                            background-color: {$state};
+                            color: white;
+                        ",
+                    ]),
+
                 TextColumn::make('brand.name')->label('Marca')->sortable()->searchable(),
                 TextColumn::make('brandModel.name')->label('Modelo')->sortable()->searchable(),
                 TextColumn::make('caliber.name')->label('Calibre')->sortable(),
@@ -217,6 +238,7 @@ class WeaponResource extends Resource
                 TextColumn::make('price')->label('Precio')->money('GTQ', true),
                 TextColumn::make('stock')->label('Stock')->badge(),
                 TextColumn::make('status')->label('Estado')->badge(),
+
             ])->description("Lista de armas")
             ->filters([
                 SelectFilter::make('brand_id')

@@ -19,6 +19,8 @@ class Weapon extends Model
         'status',
         'description',
         'images',
+        'color',
+        'color_text',
     ];
 
     protected $casts = [
