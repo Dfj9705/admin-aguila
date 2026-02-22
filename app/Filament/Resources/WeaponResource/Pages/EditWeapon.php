@@ -16,11 +16,6 @@ class EditWeapon extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
-            Action::make('nuevo')
-                ->label('Nueva arma')
-                ->icon('heroicon-m-plus')
-                ->color('success')
-                ->url(fn() => static::getResource()::getUrl('create'))
         ];
     }
 }
