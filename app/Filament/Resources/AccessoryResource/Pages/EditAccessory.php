@@ -4,6 +4,7 @@ namespace App\Filament\Resources\AccessoryResource\Pages;
 
 use App\Filament\Resources\AccessoryResource;
 use Filament\Actions;
+use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\EditRecord;
 
 class EditAccessory extends EditRecord
@@ -14,6 +15,7 @@ class EditAccessory extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+            CreateAction::make()->label("Crear nuevo accesorio"),
         ];
     }
 }

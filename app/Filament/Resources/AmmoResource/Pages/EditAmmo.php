@@ -4,6 +4,7 @@ namespace App\Filament\Resources\AmmoResource\Pages;
 
 use App\Filament\Resources\AmmoResource;
 use Filament\Actions;
+use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\EditRecord;
 
 class EditAmmo extends EditRecord
@@ -14,6 +15,7 @@ class EditAmmo extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+            CreateAction::make()->label("Crear nueva munición"),
         ];
     }
 }
