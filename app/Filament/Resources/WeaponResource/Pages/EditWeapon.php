@@ -4,6 +4,7 @@ namespace App\Filament\Resources\WeaponResource\Pages;
 
 use App\Filament\Resources\WeaponResource;
 use Filament\Actions;
+use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\EditRecord;
 
@@ -15,7 +16,11 @@ class EditWeapon extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
-            CreateAction::make()->label("Crear nueva arma"),
+            Action::make('nuevo')
+                ->label('Nueva arma')
+                ->icon('heroicon-m-plus')
+                ->color('success')
+                ->url(fn() => static::getResource()::getUrl('create'))
         ];
     }
 }

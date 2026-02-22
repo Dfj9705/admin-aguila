@@ -4,6 +4,7 @@ namespace App\Filament\Resources\AccessoryResource\Pages;
 
 use App\Filament\Resources\AccessoryResource;
 use Filament\Actions;
+use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\EditRecord;
 
@@ -15,7 +16,11 @@ class EditAccessory extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
-            CreateAction::make()->label("Crear nuevo accesorio"),
+            Action::make('nuevo')
+                ->label('Nuevo accesorio')
+                ->icon('heroicon-m-plus')
+                ->color('success')
+                ->url(fn() => static::getResource()::getUrl('create'))
         ];
     }
 }
