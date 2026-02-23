@@ -16,6 +16,11 @@ class EditAmmo extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+            Action::make('Nueva munición')
+                ->label('Nueva munición')
+                ->icon('heroicon-m-plus')
+                ->color('success')
+                ->url(fn() => static::getResource()::getUrl('create')),
         ];
     }
 }

@@ -16,6 +16,11 @@ class EditAccessory extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+            Action::make('Nuevo accesorio')
+                ->label('Nuevo accesorio')
+                ->icon('heroicon-m-plus')
+                ->color('success')
+                ->url(fn() => static::getResource()::getUrl('create')),
         ];
     }
 }
