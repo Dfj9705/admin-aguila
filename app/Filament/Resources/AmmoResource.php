@@ -117,9 +117,13 @@ class AmmoResource extends Resource
                 ->directory('ammos')
                 ->imagePreviewHeight(120)
                 ->imageResizeMode('cover')
-                ->imageResizeTargetWidth(512)
-                ->imageResizeTargetHeight(512)
                 ->imageResizeUpscale(true)
+                ->imageEditor()
+                ->imageEditorAspectRatios([
+                    '16:9',
+                    '4:3',
+                    '1:1',
+                ])
                 ->reorderable()
                 ->openable()
                 ->downloadable()

@@ -141,9 +141,13 @@ class AccessoryResource extends Resource
                     ->openable()
                     ->imagePreviewHeight(120)
                     ->imageResizeMode('cover')
-                    ->imageResizeTargetWidth(512)
-                    ->imageResizeTargetHeight(512)
                     ->imageResizeUpscale(true)
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
                     ->directory('accessories')
                     ->disk('public')
                     ->appendFiles()

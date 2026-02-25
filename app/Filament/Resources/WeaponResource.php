@@ -199,10 +199,14 @@ class WeaponResource extends Resource
                     ->openable()
                     ->imagePreviewHeight(120)
                     ->imageResizeMode('cover')
-                    ->imageResizeTargetWidth(512)
-                    ->imageResizeTargetHeight(512)
                     ->imageResizeUpscale(true)
                     ->directory('weapons')
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
                     ->disk('public')
                     ->appendFiles()
                     ->maxFiles(8),
